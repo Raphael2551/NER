@@ -1,0 +1,10 @@
+spacy
+streamlit
+matplotlib
+transformers
+torch
+tensorflow
+tf-keras
+sentencepiece
+tokenizers
+nltk
