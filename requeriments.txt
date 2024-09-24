@@ -8,3 +8,4 @@ tf-keras
 sentencepiece
 tokenizers
 nltk
+Chardet

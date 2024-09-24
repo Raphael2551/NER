@@ -18,14 +18,16 @@ def process_text_transformers_monilouise(text):
     # Extrair tokens e entidades
     tokens = text.split()
     entities_ = [(entity['entity_group'], text[entity['start']:entity['end']]) for entity in entities]
-    
+
     # Gerar HTML básico para a visualização
     html = """
     <html>
     <head>
+        <meta charset="utf-8"> <!-- Adicionando a codificação correta -->
         <style>
             body {
                 font-family: Arial, sans-serif;
+                line-height: 1.5;
             }
             .highlight {
                 padding: 2px 4px;
@@ -33,11 +35,11 @@ def process_text_transformers_monilouise(text):
                 color: #fff;
                 font-weight: bold;
             }
-            .Diagnostico { background-color: #ff9999; }
-            .SinalVital { background-color: #99ff99; }
-            .Resultado { background-color: #9999ff; }
-            .Medicamento { background-color: #ffcc99; }
-            .Dosagem { background-color: #ccffcc; }
+            .Diagnostico { background-color: #d9534f; } /* Vermelho escuro */
+            .SinalVital { background-color: #5bc0de; } /* Azul claro */
+            .Resultado { background-color: #5cb85c; } /* Verde */
+            .Medicamento { background-color: #f0ad4e; } /* Laranja */
+            .Dosagem { background-color: #0275d8; } /* Azul escuro */
             .entity-container {
                 display: inline;
             }
@@ -53,19 +55,19 @@ def process_text_transformers_monilouise(text):
         start = entity['start']
         end = entity['end']
         entity_type = entity['entity_group']
-        
+
         # Adicionar texto antes da entidade
         html += text[last_index:start]
-        
+
         # Adicionar entidade com cor
         html += f"<span class='highlight {entity_type}'>{text[start:end]}</span>"
-        
+
         last_index = end
-    
+
     # Adicionar qualquer texto que venha após a última entidade
     html += text[last_index:]
     html += "</p></body></html>"
-    
+
     return tokens, entities_, html
 
 # Exemplo de uso

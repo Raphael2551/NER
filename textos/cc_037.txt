@@ -3,4 +3,3 @@ INTERAÇÃO CIMETIDINA - VARFARINA?
 A cimetidina pode conduzir a um aumento do efeito anticoagulante de varfarina. O mecanismo da interação baseia-se na inibição de enzimas microssomais. A biotransformação dos anticoagulantes orais é inibida pela cimetidina, o que já não acontece com a ranitidina. A concentração de varfarina no plasma é aumentada. A varfarina, como outros anticoagulantes cumarínicos, inibe com dependência da concentração a redução enzimática do epóxido da vitamina K a vitamina K no fígado. Esta vitamina é necessária para a síntese dos fatores de coagulação.
 RECOMENDAÇÃO:
 Deve ser reduzida a dose de varfarina de acordo com os resultados laboratoriais da coagulação. Com a substituição da varfarina pela femprocumona, que é principalmente eliminada sob a forma de glicuronídeo, espera-se uma interação menos intensa com a cimetidina. Outra possibilidade seria a substituição da cimetidina por ranitidina.
-
