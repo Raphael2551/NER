@@ -2,6 +2,7 @@ import streamlit as st
 from nltk_modelo import process_text_nltk
 from spacy_pt_core_news_sm import process_text as spacy_process_text_sm
 from spacy_pt_core_news_lg import process_text as spacy_process_text_lg
+from spacy_modelo_treinado import process_text as spacy_process_text_modelo_treinado
 from transformers_bert_portuguese import process_text_transformers_bert
 from transformers_medialbertina_portuguese import process_text_transformers_medialbertina
 from transformers_monilouise_portuguese import process_text_transformers_monilouise
@@ -17,7 +18,9 @@ def process_text(text, algorithm):
         return spacy_process_text_lg(text)
     elif algorithm == "spaCy: pt_core_news_sm":
         return spacy_process_text_sm(text)
-    elif algorithm == "transformers: medialbertina_portuguese (especialista) ⭐":
+    elif algorithm == "spaCy: modelo treinado (especialista) ⭐":
+        return spacy_process_text_modelo_treinado(text)
+    elif algorithm == "transformers: medialbertina_portuguese (especialista) ⭐⭐":
         return process_text_transformers_medialbertina(text)
     elif algorithm == "transformers: monilouise_portuguese":
         return process_text_transformers_monilouise(text)
@@ -26,7 +29,7 @@ def process_text(text, algorithm):
     elif algorithm == "nltk: padrao_ingles":
         return process_text_nltk(text)
     else:
-        return [], [], "<html><body><h1>Algoritmo não encontrado</h1></body></html>", {}, 0
+        return [], [], "<html><body><h1>Algoritmo nao encontrado</h1></body></html>", {}, 0
 
 # Estilizando a interface
 st.markdown(
@@ -84,9 +87,10 @@ if uploaded_file is not None:
             "nltk: padrao_ingles", 
             "spaCy: pt_core_news_lg", 
             "spaCy: pt_core_news_sm",
-            "transformers_bert_portuguese",
+            "transformers: bert_portuguese",
             "transformers: monilouise_portuguese",
-            "transformers: medialbertina_portuguese (especialista) ⭐"
+            "spaCy: modelo treinado (especialista) ⭐",
+            "transformers: medialbertina_portuguese (especialista) ⭐⭐"
         ])
 
         # Processa o texto apenas quando um algoritmo for selecionado

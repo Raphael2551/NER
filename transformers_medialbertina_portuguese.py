@@ -1,4 +1,4 @@
-from transformers_monilouise_portuguese import pipeline
+from transformers_monilouise_portuguese import pipeline 
 from collections import Counter
 
 def process_text_transformers_medialbertina(text):
@@ -49,6 +49,7 @@ def process_text_transformers_medialbertina(text):
             .Resultado { background-color: #5cb85c; } /* Verde */
             .Medicamento { background-color: #f0ad4e; } /* Laranja */
             .Dosagem { background-color: #0275d8; } /* Azul escuro */
+            .ProcedimentoMedico { background-color: #ff8c00; } /* Laranja mais escuro */
             .entity-container {
                 display: inline;
             }
@@ -99,6 +100,7 @@ def process_text_transformers_medialbertina(text):
         <div class="legend-item"><span class="legend-color Resultado"></span> Resultado</div>
         <div class="legend-item"><span class="legend-color Medicamento"></span> Medicamento</div>
         <div class="legend-item"><span class="legend-color Dosagem"></span> Dosagem</div>
+        <div class="legend-item"><span class="legend-color ProcedimentoMedico"></span> Procedimento Médico</div>
     </div>
     </body>
     </html>
@@ -107,7 +109,7 @@ def process_text_transformers_medialbertina(text):
     return tokens, entities_, html, dict(entity_counts), total_entities
 
 # Exemplo de uso
-text = "O Sr. Paciente é epiléptico, sendo medicado já há um bom tempo com fenitoína, estando desde então livre das crises. Face a uma infecção lhe foi prescrita doxiciclina."
+text = "O Sr. Paciente é epiléptico, sendo medicado já há um bom tempo com fenitoína, e lhe foi prescrito um ProcedimentoMedico para controle."
 tokens, entities, html, entity_counts, total_entities = process_text_transformers_medialbertina(text)
 
 print(html)  # Ou salve o HTML em um arquivo para visualização

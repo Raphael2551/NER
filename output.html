@@ -1,0 +1,45 @@
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.5;
+            }
+            .highlight {
+                padding: 2px 4px;
+                border-radius: 3px;
+                color: #fff;  /* Texto em branco */
+                font-weight: bold;
+            }
+            .Pessoa { background-color: #ff69b4 !important; } /* Rosa */
+            .Local { background-color: #ffa500 !important; } /* Laranja escuro */
+            .Data { background-color: #9370db !important; } /* Roxo claro */
+            .legend {
+                margin-top: 20px;
+            }
+            .legend-item {
+                display: inline-block;
+                margin-right: 20px;
+            }
+            .legend-color {
+                width: 12px;
+                height: 12px;
+                display: inline-block;
+                border-radius: 2px;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+    O <span class='highlight PER'>Sr. Paciente</span> é epiléptico, sendo medicado já há um bom tempo com fenitoína, e ele vive em <span class='highlight LOC'>São Paulo</span>. A consulta foi marcada para 25 de setembro.</p>
+    <div class="legend">
+        <div class="legend-item"><span class="legend-color Pessoa"></span>Pessoa</div>
+        <div class="legend-item"><span class="legend-color Local"></span>Local</div>
+        <div class="legend-item"><span class="legend-color Data"></span>Data</div>
+    </div>
+    </body>
+    </html>
+    

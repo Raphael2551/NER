@@ -3,12 +3,12 @@ from collections import Counter
 
 # Função para processar o texto e retornar tokens e entidades
 def process_text(text):
-    # Carregar o modelo pequeno de português do spaCy
-    nlp = spacy.load("pt_core_news_sm")
-
+    # Carregar o pipeline treinado do spaCy
+    nlp = spacy.load(r"C:\\Users\\rapha\\Desktop\\NER\\trained_pipeline_spacy")
+    
     # Processar o texto com o modelo
     doc = nlp(text)
-
+    
     # Extrair tokens e entidades
     tokens = [token.text for token in doc]
     entities = [(ent.label_, ent.text) for ent in doc.ents]
@@ -37,6 +37,9 @@ def process_text(text):
             .LOC { background-color: #ffa500; } /* Local */
             .ORG { background-color: #5bc0de; } /* Organização */
             .MISC { background-color: #5cb85c; } /* Outros */
+            .MEDICAMENTO { background-color: #6a5acd; } /* Medicamento */
+            .SINTOMA { background-color: #ff4500; } /* Sintoma */
+            .REACAO { background-color: #32cd32; } /* Reação */
             .legend {
                 margin-top: 20px;
             }
@@ -62,7 +65,7 @@ def process_text(text):
     for ent in doc.ents:
         start = ent.start_char
         end = ent.end_char
-        entity_type = ent.label_
+        entity_type = ent.label_  # Tipo de entidade
 
         # Adicionar texto antes da entidade
         html += text[last_index:start]
@@ -83,6 +86,9 @@ def process_text(text):
         <div class="legend-item"><span class="legend-color LOC"></span> Local</div>
         <div class="legend-item"><span class="legend-color ORG"></span> Organização</div>
         <div class="legend-item"><span class="legend-color MISC"></span> Outros</div>
+        <div class="legend-item"><span class="legend-color MEDICAMENTO"></span> Medicamento</div>
+        <div class="legend-item"><span class="legend-color SINTOMA"></span> Sintoma</div>
+        <div class="legend-item"><span class="legend-color REACAO"></span> Reação</div>
     </div>
     </body>
     </html>
@@ -91,7 +97,7 @@ def process_text(text):
     return tokens, entities, html, dict(entity_counts), total_entities
 
 # Exemplo de uso
-text = "O Sr. Paciente é epiléptico, sendo medicado já há um bom tempo com fenitoína, e ele vive em São Paulo. A consulta foi marcada para 25 de setembro."
+text = "O Sr. Paciente é epiléptico, sendo medicado com fenitoína, apresenta dores de cabeça como sintoma, e teve reação adversa ao medicamento. A consulta foi marcada para 25 de setembro."
 tokens, entities, html, entity_counts, total_entities = process_text(text)
 
 # Para visualização
